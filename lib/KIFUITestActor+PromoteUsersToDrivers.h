@@ -16,6 +16,6 @@
 - (void)promoteUserToDriverFromScratch;
 - (void)promoteUsersToDrivers;
 
-- (void)promoteLoggedInUserToDriver;
+- (void)promoteToDriverUserWithData:(NSDictionary *)sampleUserData;
     
 @end

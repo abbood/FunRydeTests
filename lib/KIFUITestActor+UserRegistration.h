@@ -21,6 +21,7 @@ typedef void (^additionalStepCallback)(void);
 - (void)user_B_registration;
 
 - (void)login;
+- (void)login:(NSDictionary *)sampleUserData;
 
 - (void)loginAsUser_A;
 - (void)loginAsUser_B;

@@ -10,5 +10,6 @@
 
 @interface KIFUITestActor (RiderCreatingLift)
 
-- (void)riderCreateslift;
+- (void)riderCreatesliftBySearch;
+- (void)riderCreatesliftByPanning;
 @end

@@ -11,6 +11,7 @@
 #import "KIFUITestActor+UserRegistration.h"
 #import "DataGenerator.h"
 #import "Constants.h"
+#import "KIFUITestActor+SettingsPage.h"
 
 @implementation KIFUITestActor (PromoteUsersToDrivers)
 
@@ -56,20 +57,15 @@
     [self singleUserRegistration];
     
     // now begin testing
-    [self promoteLoggedInUserToDriver];
+    [self promoteToDriverUserWithData:[DataGenerator sampleUserData]];
 }
 
-- (void)promoteLoggedInUserToDriver {
-   // [self verifyThatUserIsNotDriver];
-    [self waitForViewWithAccessibilityLabel:@"menu button"];
-    [self tapViewWithAccessibilityLabel:@"menu button"];
-    [self waitForViewWithAccessibilityLabel:@"driver mode switch"];
-    
-    [self setOn:YES forSwitchWithAccessibilityLabel:@"driver mode switch"];
-    
+- (void)promoteToDriverUserWithData:(NSDictionary *)sampleUserData {
+    [self tapOnMenuButton];
+    [self switchDriverModeOn:YES];
     
     [self reset];
-    [self login];
+    [self login:sampleUserData];
     
     [self verifyThatUserIsDriver];
 }
